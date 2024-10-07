@@ -1,3 +1,4 @@
+import ArticleItemList from "@/components/ArticleListItem";
 import { getCategorisedArticles } from "@/lib/articles";
 
 const HomePage = () => {
@@ -10,7 +11,15 @@ const HomePage = () => {
       <header className="font-cormorantGaramond font-light text-6xl text-neutral-900 text-center">
         <h1>minimal blog</h1>
       </header>
-      <section className="md:grid md:grid-cols-2 flex flex-col gap-10"></section>
+      <section className="md:grid md:grid-cols-2 flex flex-col gap-10">
+        {articles !== null && Object.keys(articles).map(article => (
+          <ArticleItemList 
+          category={article} 
+          articles={articles[article]} 
+          key={article}/>
+        ))}
+
+      </section>
     </section>
   );
 };
