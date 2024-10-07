@@ -43,15 +43,15 @@ const getSortedArticles = (): ArticleItem[] => {
 };
 
 export const getCategorisedArticles = (): Record<string, ArticleItem[]> => {
-    const sortedArticles =getSortedArticles()
-    const categorisedArticles: Record<string, ArticleItem[]> = {}
+  const sortedArticles = getSortedArticles();
+  const categorisedArticles: Record<string, ArticleItem[]> = {};
 
-    sortedArticles.forEach((article)=> {
-        if (!categorisedArticles[article.category]) {
-            categorisedArticles[article.category] = []
-        }
-        categorisedArticles[article.category]push(article)
-    })
+  sortedArticles.forEach((article) => {
+    if (!categorisedArticles[article.category]) {
+      categorisedArticles[article.category] = [];
+    }
+    categorisedArticles[article.category].push(article);
+  });
 
-    return categorisedArticles
-}
+  return categorisedArticles;
+};
